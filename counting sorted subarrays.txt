@@ -1,0 +1,26 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int a[100],n,i,b=0;
+    printf("Enter the array size:");
+    scanf("%d",&n);
+    printf("Enter the array elements:\n");
+    for(i=0;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+    printf("Sorted subarrays are:\n");
+    for(i=0;i<n;i++){
+        if(a[i]<a[i+1]){
+            printf("%d ",a[i]);
+        }
+        else if((a[i]>a[i-1])&&(a[i]>=a[i+1]||i==n-1)){
+            printf("%d ",a[i]);
+            b=b+1;
+            printf("\n");
+            
+        }
+    }
+    printf("count of sorted subarrays:%d",b);
+    return 0;
+}

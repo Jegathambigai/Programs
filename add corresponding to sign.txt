@@ -1,0 +1,19 @@
+#include<stdio.h>
+int main(){
+    int n,a[100],b=0,i,c=0;
+    scanf("%d",&n);
+    for(i=0;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+    for(i=0;i<n;i++){
+        if(a[i]>=0){
+            b=b+a[i];
+        }
+        else if(a[i]<0){
+            c=c+a[i];
+        }
+    }
+    printf("Positive numbers sum:%d\n",b);
+    printf("Negative numbers sum:%d",c);
+    return 0;
+}

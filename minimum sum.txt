@@ -1,0 +1,73 @@
+#include <stdio.h>
+
+int main() {
+    int a[100],n,i,j,c=0,e=0,t,d[100];
+    scanf("%d",&n);
+    for(i=0;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+    for(i=0;i<n;i++){
+        for(j=i+1;j<n;j++){
+            if(a[i]>a[j]){
+                t=a[i];
+                a[i]=a[j];
+                a[j]=t;
+            }
+            else{
+                continue;
+            }
+        }
+    }
+    for(i=0;i<n;i++){
+        e=0;
+        for(j=i+1;j<2*n;j++){
+            
+            if(e<n-1){
+            if(j<n){
+                if(a[i]!=a[j]&&a[i]!=a[i-1]){
+                   c=c+a[j];
+                   
+                   e=e+1;
+                }
+                else{
+                    break;
+                }
+            }
+            else if(j>=n){
+                if(a[i]!=a[j-n]&&a[i]!=a[i-1]){
+                    c=c+a[j-n];
+                    
+                    e=e+1;
+                }
+                else{
+                    break;
+                }
+            }
+            
+        }
+            }
+        
+        d[i]=c;
+        
+        c=0;
+    }
+   for(i=0;i<n;i++){
+        for(j=i+1;j<n;j++){
+            if(d[i]>d[j]){
+                t=d[i];
+                d[i]=d[j];
+                d[j]=t;
+            }
+            else{
+                continue;
+            }
+        }
+    }
+    for(i=0;i<n;i++){
+        if(d[i]>0){
+            printf("%d",d[i]);
+            break;
+        }
+    }
+    return 0;
+}
