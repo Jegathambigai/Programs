@@ -1,0 +1,14 @@
+#include<stdio.h>
+int main(){
+char s[100];
+int i,j;
+printf("Enter the string:);
+scanf("%[^\n]s",s);
+for(i=0;s[i]!='\0';i++){
+for(j=i;s[j]!='\0';j++){
+printf("%c",s[j]);
+}
+printf("\n");
+}
+return 0;
+}

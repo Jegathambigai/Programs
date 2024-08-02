@@ -1,0 +1,33 @@
+#include<stdio.h>
+int main(){
+    char a[100][100];
+    int b[100],n,i,j,c[i],d;
+    printf("Enter number of persons:\n");
+    scanf("%d",&n);
+    printf("Enter the person name with height:\n");
+    for(i=0;i<n;i++){
+        scanf("%s",&a[i]);
+        scanf("%d",&b[i]);
+        c[i]=i;
+    }
+    
+    for(i=0;i<n;i++){
+        for(j=i+1;j<n;j++){
+            if(b[i]>b[j]){
+                d=b[i];
+                b[i]=b[j];
+                b[j]=d;
+                
+                d=c[i];
+                c[i]=c[j];
+                c[j]=d;
+            }
+            
+        }
+    }
+    printf("Arranging names according to sorted heights:\n");
+    for(i=0;i<n;i++){
+        
+        printf("%s\n",a[c[i]]);
+    }
+}

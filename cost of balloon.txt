@@ -1,0 +1,81 @@
+#include <stdio.h>
+
+int main(){
+	int n,i,j,a,b,r,c[1000],s1=0,s2=0,s3=0,s4=0;
+	scanf("%d", &n);              	                
+	for(i=0;i<n;i++){
+		
+		s1=0;
+		s2=0;
+		s3=0;
+		s4=0;
+		scanf("%d",&a);
+		scanf("%d",&b);
+		scanf("%d",&r);
+		for(j=0;j<2*r;j++){
+		    scanf("%d",&c[j]);
+		}
+		for(j=0;j<2*r;j++){
+		    if(c[j]==1||c[j]==0){
+		        if(j%2==0){
+		            s1=s1+(c[j]*a);
+					s3=s3+(c[j]*b);
+		        }
+		        else if(j%2==1){
+		            s2=s2+(c[j]*b);
+					s4=s4+(c[j]*a);
+		        }
+		    }
+		    else{
+		    break;
+		}
+		}
+		if((s1+s2)<(s3+s4)){
+		printf("%d\n",s1+s2);
+		}
+		else if((s1+s2)>(s3+s4)){
+		printf("%d\n",s3+s4);
+		}
+		
+	}
+	return 0;
+}
+
+
+
+
+#include <stdio.h>
+
+int main() {
+    int t; // number of test cases
+    scanf("%d", &t);
+
+    while (t--) {
+        int a, b, r;
+        scanf("%d %d", &a, &b);
+        scanf("%d", &r);
+
+        int s1 = 0, s2 = 0;
+        for (int i = 0; i < r; i++) {
+            int p1, p2;
+            scanf("%d %d", &p1, &p2);
+
+            // Counting the number of problems solved by participants
+            s1 += p1;
+            s2 += p2;
+        }
+
+        // Calculating the total cost for both scenarios
+        int cost1 = s1 * a + s2 * b;
+        int cost2 = s1 * b + s2 * a;
+
+        // Printing the minimum cost of the two calculated scenarios
+        if (cost1 < cost2) {
+            printf("%d\n", cost1);
+        } else {
+            printf("%d\n", cost2);
+        }
+    }
+
+    return 0;
+}
